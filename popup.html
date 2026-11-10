@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>X 媒体原图抓取器</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>X 媒体原图抓取器</h1>
+    <div id="ctx" class="muted">正在读取当前标签页…</div>
+    <div id="who" class="muted"></div>
+    <div id="histInfo" class="muted">ID 持久缓存 0 个（已下载）</div>
+  </header>
+
+  <section class="actions">
+    <button id="btnScroll">① 滚动加载全部</button>
+    <button id="btnDownload" class="primary">② 下载全部原图</button>
+    <button id="btnExport">导出链接清单</button>
+    <button id="btnReset">清空已下载记录</button>
+    <button id="btnExpHist">导出下载记录</button>
+    <button id="btnImpHist">导入下载记录</button>
+  </section>
+
+  <section class="options">
+    <label>总文件夹（可留空）
+      <input id="optDir" type="text" spellcheck="false" placeholder="留空=直接放下载目录">
+    </label>
+    <label class="row"><input id="optUserDir" type="checkbox"> 作者子文件夹（按用户名分文件夹）</label>
+    <label>文件命名
+      <select id="optName">
+        <option value="{user}_{id}">用户名_图片ID</option>
+        <option value="{id}">图片ID</option>
+        <option value="{index}_{user}_{id}">序号_用户名_图片ID</option>
+      </select>
+    </label>
+    <label>并发数
+      <select id="optConc">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </label>
+    <label class="row"><input id="optSkip" type="checkbox"> 跳过已下载（按图片 ID 去重）</label>
+  </section>
+
+  <section class="progress">
+    <div id="barWrap"><div id="bar"></div></div>
+    <div id="status" class="muted">就绪</div>
+  </section>
+
+  <section class="log">
+    <ul id="log"></ul>
+  </section>
+
+  <input type="file" id="importFile" accept=".json,application/json" hidden>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font: 13px/1.5 "Segoe UI", "Microsoft YaHei", sans-serif;
+  color: #1c1c1e;
+  background: #f7f7f8;
+  padding: 12px;
+}
+
+header h1 { font-size: 15px; margin-bottom: 2px; }
+.muted { color: #6b7075; font-size: 11px; word-break: break-all; }
+
+button.danger {
+  background: #d93025;
+  border-color: #d93025;
+  color: #fff;
+  font-weight: 600;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+button {
+  padding: 7px 8px;
+  border: 1px solid #d3d6db;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+button:hover { background: #eef1f5; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.primary {
+  background: #1d9bf0;
+  border-color: #1d9bf0;
+  color: #fff;
+  font-weight: 600;
+}
+button.primary:hover { background: #1a8cd8; }
+
+.options {
+  background: #fff;
+  border: 1px solid #e2e4e8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.options label { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; }
+.options label.row { justify-content: flex-start; }
+.options input[type="text"] {
+  width: 170px;
+  padding: 3px 6px;
+  border: 1px solid #d3d6db;
+  border-radius: 6px;
+}
+.options select { padding: 3px 6px; border: 1px solid #d3d6db; border-radius: 6px; }
+
+.progress { margin-bottom: 8px; }
+#barWrap {
+  height: 8px;
+  border-radius: 4px;
+  background: #e2e4e8;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+#bar { height: 100%; width: 0; background: #1d9bf0; transition: width 0.25s; }
+
+.log {
+  background: #fff;
+  border: 1px solid #e2e4e8;
+  border-radius: 8px;
+  max-height: 170px;
+  overflow-y: auto;
+}
+.log ul { list-style: none; }
+.log li {
+  padding: 4px 8px;
+  border-bottom: 1px solid #f0f1f3;
+  font-size: 11px;
+  word-break: break-all;
+}
+.log li:last-child { border-bottom: none; }
+.log li.err { color: #d93025; }
+.log li.ok { color: #188038; }
